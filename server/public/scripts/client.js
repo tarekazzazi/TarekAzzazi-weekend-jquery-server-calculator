@@ -26,8 +26,8 @@ function collectInputsTurnToNumber(event) {
     // let getValues =  $('.inputVal').map((_, el) => el.value).get()
     //console.log(getValues);
     let holdValues = {
-        firstInput: Number($('#firstInput').val()),
-        secondInput: Number($('#secondInput').val()),
+        firstInput: $('#firstInput').val(),
+        secondInput: $('#secondInput').val(),
         operator: tacos 
     }
 

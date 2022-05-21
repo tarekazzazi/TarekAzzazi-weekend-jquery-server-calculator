@@ -14,6 +14,9 @@ let totalValue = [];
 app.post('/submit-for-calc', (req,res) => {
 
     let holdValues = req.body
+
+    holdValues.firstInput = Number(holdValues.firstInput)
+    holdValues.secondInput = Number(holdValues.secondInput)
     
     console.log('checking object',req.body); // = holdvalues 
     console.log('In server.js');
@@ -27,8 +30,14 @@ app.post('/submit-for-calc', (req,res) => {
 
 
 function doMath(holdValues) {
+    let sum;
     if (holdValues.operator === '+') {
         console.log('Addition');
+
+        sum = holdValues.firstInput + holdValues.secondInput
+
+        console.log('does it add',sum);
+
     } else if (holdValues.operator === '-') {
         console.log('Subtraction');
     } else if (holdValues.operator === '*') {
