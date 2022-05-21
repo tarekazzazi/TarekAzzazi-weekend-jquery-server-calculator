@@ -64,20 +64,20 @@ function doAdditon(event) {
 function doSubtraction(event) {
     event.preventDefault();
     tacos = '-'
-    console.log('do addition',tacos);
+    console.log('do subtraction',tacos);
     
 }
 
 function doMultiplication(event) {
     event.preventDefault();
     tacos = '*'
-    console.log('do addition',tacos);
+    console.log('do multiplication',tacos);
     
 }
 
 function doDivison(event) {
     event.preventDefault();
     tacos = '/'
-    console.log('do addition',tacos);
+    console.log('do divison',tacos);
     
 }
