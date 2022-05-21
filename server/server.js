@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-let totalValue = [];
+let historyArray = [];
+
 
 app.post('/submit-for-calc', (req,res) => {
 
@@ -21,11 +22,21 @@ app.post('/submit-for-calc', (req,res) => {
     console.log('checking object',req.body); // = holdvalues 
     console.log('In server.js');
     
-    totalValue.push(req.body)
-    console.log('The total value is',totalValue);
+    console.log('The total value is', historyArray);
 
-    doMath(holdValues)
-    res.sendStatus(201)
+    let answer = doMath(holdValues)
+    console.log('before', holdValues);
+    holdValues.answer = answer
+  
+    console.log('after', holdValues);
+
+    historyArray.push(holdValues)
+
+    res.send({
+        history: historyArray,
+        answer: answer
+        
+    })
 })
 
 
@@ -61,7 +72,7 @@ function doMath(holdValues) {
         console.log('does it divide',sum);
 
     }
-       
+       return sum; 
 }
   
 

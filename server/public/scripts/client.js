@@ -46,7 +46,7 @@ function collectInputsTurnToNumber(event) {
         data: holdValues
 
     }).then(function (res){
-        console.log(res);
+        console.log('result',res);
     });
 
 
