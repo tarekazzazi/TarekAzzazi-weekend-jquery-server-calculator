@@ -1,7 +1,7 @@
 <--------------Calculator--------------------->
-[   ] h1 with 'Server Side Calculator' inside
+[X] h1 with 'Server Side Calculator' inside
 
-[   ] 2 input value type number elements 
+[X] 2 input value type number elements 
 
     {   } make '+' button
         [   ] click listener for button
@@ -24,7 +24,7 @@
         [   ] new function sumOfValues
 
         [   ] when '=' clicked bundle inputs into new object
-        
+
         [   ] send new object to server via post
         [   ] into empty array on server side
        
