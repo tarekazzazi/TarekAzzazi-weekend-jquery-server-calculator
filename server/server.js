@@ -40,10 +40,16 @@ function doMath(holdValues) {
 
     } else if (holdValues.operator === '-') {
         console.log('Subtraction');
+        sum = holdValues.firstInput - holdValues.secondInput
+
     } else if (holdValues.operator === '*') {
         console.log('Multiply');
+        sum = holdValues.firstInput * holdValues.secondInput
+
     } else if (holdValues.operator === '/')
     console.log('divide');
+
+        sum = holdValues.firstInput / holdValues.secondInput
 }
   
 
