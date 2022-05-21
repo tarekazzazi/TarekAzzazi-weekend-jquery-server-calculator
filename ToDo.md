@@ -4,13 +4,17 @@
 [X] 2 input value type number elements 
 
     {   } make '+' button
-        [   ] click listener for button
-        [   ] new function addResults
+        [X] click listener for button
+        [X] new function addResults
+        [X] get inputs
+        [   ] add entered values together 
+        [   ] return to a array of some kind
 
     {   } make '-' button
         [   ] click listener for button
         [   ] new function subtractResults
-
+        [   ] subtract values entered
+        [   ] return to a array of some kind
     {   } make '*' button
         [   ] click listener for button
         [   ] new function multiplyResults

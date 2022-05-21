@@ -9,5 +9,10 @@ function Ready() {
 function addValues(event) {
     console.log('In addValues');
 
+    let AddValues =  $('.inputVal').map((_, el) => el.value).get()
+    
+    console.log(AddValues);
+
+    
     event.preventDefault();
 }
