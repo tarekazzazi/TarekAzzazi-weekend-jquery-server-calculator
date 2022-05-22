@@ -32,12 +32,7 @@ function collectInputsTurnToNumber(event) {
     }
 
     console.log(holdValues);
-    // for (value of getValues) {
-    //     value = (Number(value))
-    //     console.log(value);
-    //     convertedValues.push(value)
-
-    // }
+   
  
 
     $.ajax({
@@ -47,12 +42,31 @@ function collectInputsTurnToNumber(event) {
 
     }).then(function (res){
         console.log('result',res);
+
     });
 
-
+    displayHistory();
     event.preventDefault();
    
 }
+
+function displayHistory (){
+    $.ajax({
+        url: '/display-history',
+        type: "GET"
+    }).then(function (res) {
+        console.log(res);
+        console.log('request success');
+    
+        for (const history of res.historyOfArrays) {
+            console.log('for loop',history);
+            
+        }
+    
+    });
+
+}
+
 
 function doAdditon(event) {
     event.preventDefault();
@@ -80,4 +94,8 @@ function doDivison(event) {
     tacos = '/'
     console.log('do divison',tacos);
     
+}
+
+function displayHistoryToDom() {
+    console.log('Yey lets display the history');
 }

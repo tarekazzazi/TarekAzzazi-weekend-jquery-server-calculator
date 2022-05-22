@@ -33,15 +33,21 @@ app.post('/submit-for-calc', (req,res) => {
     historyArray.push(holdValues)
 
     res.send({
-        history: historyArray,
         answer: answer
         
     })
 })
 
+app.get('/display-history', (req,res) => {
+    console.log('In app.get');
+
+    res.send({historyOfArrays: historyArray});
+    
+})
 
 function doMath(holdValues) {
     let sum;
+
     if (holdValues.operator === '+') {
         console.log('Addition');
 
