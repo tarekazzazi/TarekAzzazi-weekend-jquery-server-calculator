@@ -11,46 +11,59 @@ app.use(bodyParser.json());
 
 let historyArray = [];
 
-
+// the post submit-for-calc comes in here
 app.post('/submit-for-calc', (req,res) => {
 
+    // I decided to make my rec.body equal holdValues for less confusion
     let holdValues = req.body
 
-    holdValues.firstInput = Number(holdValues.firstInput)
-    holdValues.secondInput = Number(holdValues.secondInput)
-    
-    console.log('checking object',req.body); // = holdvalues 
-    console.log('In server.js');
-    
-    console.log('The total value is', historyArray);
-
-    let answer = doMath(holdValues)
-    console.log('before', holdValues);
-    holdValues.answer = answer
-  
-    console.log('after', holdValues);
-
-    historyArray.push(holdValues)
-
-    res.send({
-        answer: answer
+        // when I send the object holdValues over for some reason it became a string again
+        // so I decided to convert the string to a number on the server side instead by using the word Number()
+        holdValues.firstInput = Number(holdValues.firstInput)
+        holdValues.secondInput = Number(holdValues.secondInput)
         
-    })
-})
+        // More testing with console.log
+        // checks to see if I get the object inputs as numbers not strings
+        console.log('checking object',req.body); // = holdvalues 
+        console.log('In server.js');
+        
+        // checks tp see if my history shows up
+        console.log('The total value is', historyArray);
 
+    // sets the variable answer to the return of the function doMath which has a parameter of the holdValues variable
+    let answer = doMath(holdValues)
+
+        console.log('before', holdValues);
+
+        holdValues.answer = answer
+    
+        console.log('after', holdValues);
+
+        historyArray.push(holdValues)
+
+        res.send({
+            answer: answer
+        })
+})
+// this is the /display-history I'm requesting be sent back
 app.get('/display-history', (req,res) => {
+
     console.log('In app.get');
 
+    // sends history of arrays back as a object
     res.send({historyOfArrays: historyArray});
     
 })
 
 function doMath(holdValues) {
+    // sets sum to undefined
     let sum;
-
+    // checks to see if the operator sent over from client.js matches
+    // if the operator does match it makes sum = that kind of math
     if (holdValues.operator === '+') {
+        // console log to see what math its doing
         console.log('Addition');
-
+        
         sum = holdValues.firstInput + holdValues.secondInput
 
         console.log('does it add',sum);
@@ -82,25 +95,6 @@ function doMath(holdValues) {
 }
   
 
-   
-
-    /*
-    $('#minusBtn').on('click',subtractValues)
-       
-
-    $('#timesBtn').on('click',multiplyValues)
-        
-
-    $('#divideBtn').on('click',divideValues)
-        */
-
-
-
-
- // decided to make global variable so all functions can access it
-// = button collects inputs and listens to see which button is clicked next which it will then call that function
-
-// console log what operation is clicked
 
 app.listen(5000, () => {
     console.log('Siri is Lisitening');
