@@ -6,13 +6,13 @@ function Ready() {
     console.log('In onReady');
     $('#userInputs').on('click','#submitBtn', collectInputsTurnToNumber )
     
-    $('#plusBtn').on('click', doAdditon)
+    $('#plusBtn').on('click', sendToDoAdditon)
     
-    $('#minusBtn').on('click', doSubtraction)
+    $('#minusBtn').on('click', sendToDoSubtraction)
     
-    $('#timesBtn').on('click', doMultiplication)
+    $('#timesBtn').on('click', sendToDoMultiplication)
 
-    $('#divideBtn').on('click', doDivison)
+    $('#divideBtn').on('click', sendToDoDivison)
     
 }
 
@@ -57,9 +57,16 @@ function displayHistory (){
     }).then(function (res) {
         console.log(res);
         console.log('request success');
+
+        $('#historyOfAnswers').empty()
     
         for (const history of res.historyOfArrays) {
             console.log('for loop',history);
+
+            $('#historyOfAnswers').append(`
+                <li>${history.firstInput} ${history.operator} ${history.secondInput} = ${history.answer} </li>
+            
+            `)
             
         }
     
@@ -68,34 +75,31 @@ function displayHistory (){
 }
 
 
-function doAdditon(event) {
+function sendToDoAdditon(event) {
     event.preventDefault();
     tacos = '+'
     console.log('do addition',tacos);
     
 }
 
-function doSubtraction(event) {
+function sendToDoSubtraction(event) {
     event.preventDefault();
     tacos = '-'
     console.log('do subtraction',tacos);
     
 }
 
-function doMultiplication(event) {
+function sendToDoMultiplication(event) {
     event.preventDefault();
     tacos = '*'
     console.log('do multiplication',tacos);
     
 }
 
-function doDivison(event) {
+function sendToDoDivison(event) {
     event.preventDefault();
     tacos = '/'
     console.log('do divison',tacos);
     
 }
 
-function displayHistoryToDom() {
-    console.log('Yey lets display the history');
-}
