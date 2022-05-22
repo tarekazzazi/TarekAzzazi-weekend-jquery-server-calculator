@@ -18,6 +18,8 @@ function Ready() {
 
     // Listens for a click on '#divideBtn' then runs function sendToDoDivison
     $('#divideBtn').on('click', sendToDoDivison)
+
+    $('#clearBtn').on('click', clearInputs)
     
 }
 
@@ -93,6 +95,11 @@ function displayHistory (){
     
     });
 
+}
+
+function clearInputs(event){
+    event.preventDefault();
+    $('.inputVal').val('')
 }
 
 // all this function does is set the operator to the string '+'
