@@ -98,6 +98,8 @@ function displayHistory (){
 }
 
 function clearInputs(event){
+
+    // targets class '.inputVal' and emptys the values
     event.preventDefault();
     $('.inputVal').val('')
 }
