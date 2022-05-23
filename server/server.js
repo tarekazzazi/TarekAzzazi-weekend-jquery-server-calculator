@@ -96,6 +96,6 @@ function doMath(holdValues) {
   
 
 
-app.listen(5000, () => {
+app.listen( process.env.PORT || 5000, () => {
     console.log('Siri is Lisitening');
 })

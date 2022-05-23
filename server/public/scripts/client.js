@@ -21,6 +21,12 @@ function Ready() {
 
     $('#clearBtn').on('click', clearInputs)
     
+    $('.userInterface').css('padding','1em');
+    $('.row3').css('position', 'relative')
+
+    
+
+
 }
 
     
@@ -133,3 +139,6 @@ function sendToDoDivison(event) {
     
 }
 
+// ------------Styling--------------------------------------------------------------------------- //
+
+$
